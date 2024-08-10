@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from '../../node_modules/rxjs/dist/types/index';
+import { AlbumClass } from './models/album-interface';
+import {map} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +10,8 @@ import { Injectable } from '@angular/core';
 
 export class AlbumServiceService {
 
-  constructor() { }
+  private _albumsUrl:string = "'https://monsite.fr/albums',"
+  constructor(private http:HttpClient) { }
   
   albums = [
   {
@@ -346,7 +351,25 @@ export class AlbumServiceService {
     "description": "Un album puissant et émouvant de Serge Lama, explorant l'amour sous toutes ses formes.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   }
 ]
+getAlbum(id:string): Observable<AlbumClass> | undefined {
+  return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
+    map((album:AlbumClass) => album))
+}
 
+search(word: string): Observable<AlbumClass[]> {
+  return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
+    map((albums: AlbumClass[]) => {
+      // parcourir le tableau d'albums
+      return albums.filter(album => {
+        // retourner ceux contenant le string de la variable "word"
+        return album.title
+          .toLowerCase()
+          .includes(word.trim().toLowerCase());
+      });
+
+    })
+  )
+}
 
 
 }
