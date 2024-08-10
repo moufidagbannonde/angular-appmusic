@@ -1,0 +1,22 @@
+<p>albums works!</p>
+<div *ngFor="let album of albums; let index">
+    <div class="h2">
+        <h2>{{ album.genre }}</h2>
+    </div>
+    <article>
+        <h3>
+            <a href="#">{{ album.title }}</a>
+        </h3>
+        <p>{{ album.description }}</p>
+        <span class="word" *ngFor="let tag of album.tags" :key="tag.id">{{
+            tag
+            }}</span>
+
+        <div class="bottom">
+            <button>en</button>
+            <img src="../../assets/favorite_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
+            <span>{{ album.trackCount }}</span>
+            <img src="/src/assets/timer_24dp_FILL0_wght400_GRAD0_opsz24.svg" alt="" />
+            <span>{{ album.duration }}</span>
+            <button>Details</button>
+        </div>
