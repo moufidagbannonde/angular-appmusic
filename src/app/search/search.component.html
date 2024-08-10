@@ -1,6 +1,8 @@
 <p>search works!</p>
 <div class="conteneur">
-    <form (ngSubmit)="onSubmit(formSearch)">
+    <form> 
+        <!-- (ngSubmit)="onSubmit(searchAlbums)"  -->
+    
         <input type="search" placeholder="Recherchez..." title="Entrez le nom d'une chanson" name="word" [(ngModel)]="word" (ngModelChange)="onChangeEmit($event)" required>
         <button id="search">
             Search

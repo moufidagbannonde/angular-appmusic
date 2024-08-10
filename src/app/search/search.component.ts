@@ -8,6 +8,7 @@ import { AlbumClass } from '../models/album-interface';
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
+
 export class SearchComponent {
   word: string = '';
 
@@ -15,18 +16,25 @@ export class SearchComponent {
   constructor(
     private albumService: AlbumServiceService
   ) { }
-
-  onSubmit(form: NgForm) {
-    const results = this
-      .albumService.search(form.value.word)
-      .subscribe({
-        next: (alb: AlbumClass[]) => {
-          if (alb.length > 0) {
-            this.searchAlbums.emit(alb);
-          }
-        }
-      });
-
+// form !:NgForm;
+//   onSubmit(form: NgForm) {
+//     const results = this
+//       .albumService.search(form.value.word)
+//       .subscribe({
+//         next: (alb: AlbumClass[]) => {
+//           if (alb.length > 0) {
+//             this.searchAlbums.emit(alb);
+//           }
+//         }
+//       });
+      // onChangeEmit($event: string) {
+      //   const results = this.albumService.search($event)
+      //         .subscribe(
+      //           (alb: Album[]) => {
+      //             this.searchAlbums.emit(alb);
+      //           }
+      //         )
+      // }
 
   }
-}
+

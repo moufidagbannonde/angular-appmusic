@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="navbar-brand nav-link" routerLink="/">app-music</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home">Home</a>
+
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Se connecter</a>
+      </li>
+    </ul>
+    <p *ngIf="count">{{ count }}</p>
+  </nav>
