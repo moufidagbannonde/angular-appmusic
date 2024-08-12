@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlbumModuleModule } from './album-module/album-module.module';
-import { FormsModule } from '../../node_modules/@angular/forms/index';
+import { AlbumDescriptionComponent } from './album-description/album-description.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

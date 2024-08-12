@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-// import { NgForm } from '../../../node_modules/@angular/forms/index';
+import { Component, EventEmitter, Output, OnInit} from '@angular/core';
+import { NgForm } from '../../../node_modules/@angular/forms/index';
 import { AlbumServiceService } from '../album-service.service';
 import { AlbumClass } from '../models/album-interface';
 
@@ -9,32 +9,20 @@ import { AlbumClass } from '../models/album-interface';
   styleUrl: './search.component.css'
 })
 
-export class SearchComponent {
+export class SearchComponent implements OnInit{
   word: string = '';
 
   @Output() searchAlbums: EventEmitter<AlbumClass[]> = new EventEmitter(); // émetteur d'évenement
   constructor(
     private albumService: AlbumServiceService
   ) { }
-// form !:NgForm;
-//   onSubmit(form: NgForm) {
-//     const results = this
-//       .albumService.search(form.value.word)
-//       .subscribe({
-//         next: (alb: AlbumClass[]) => {
-//           if (alb.length > 0) {
-//             this.searchAlbums.emit(alb);
-//           }
-//         }
-//       });
-      // onChangeEmit($event: string) {
-      //   const results = this.albumService.search($event)
-      //         .subscribe(
-      //           (alb: Album[]) => {
-      //             this.searchAlbums.emit(alb);
-      //           }
-      //         )
-      // }
 
+  onSubmit(form: NgForm) {
+    console.log(form);
+    console.log(form.value['word']);
   }
-
+  ngOnInit(){
+    
+  }
+     
+}

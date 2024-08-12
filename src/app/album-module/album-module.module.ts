@@ -4,14 +4,17 @@ import { AlbumsComponent } from '../albums/albums.component';
 import { AsideComponent } from '../aside/aside.component';
 import { SearchComponent } from '../search/search.component';
 import { NavigationComponent } from '../navigation/navigation.component';
+import { LoginComponent } from '../login/login.component';
 
 
 
 @NgModule({
-  declarations: [AlbumsComponent, 
+  declarations: [
+    AlbumsComponent, 
     AsideComponent, 
     SearchComponent,
-  NavigationComponent
+  NavigationComponent,
+  LoginComponent
 ],
   imports: [
     CommonModule
@@ -20,7 +23,11 @@ import { NavigationComponent } from '../navigation/navigation.component';
     AlbumsComponent,
     AsideComponent,
     SearchComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginComponent
+
   ]
 })
-export class AlbumModuleModule { }
+export class AlbumModuleModule {
+  constructor() { }
+ }

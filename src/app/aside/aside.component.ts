@@ -12,11 +12,11 @@ export class AsideComponent {
   // image:string = "../../assets/capeverdeflag.jpg"
   @Input() album!: AlbumClass;
 
-  @Output() onPlay: EventEmitter<AlbumClass> = new EventEmitter();
+  // @Output() onPlay: EventEmitter<AlbumClass> = new EventEmitter();
 
-  play(album: AlbumClass) {
-    this.onPlay.emit(album);
-  }
+  // play(album: AlbumClass) {
+  //   this.onPlay.emit(album);
+  // }
   constructor() { }
   ngOnInit() {
     console.log(this.album);
