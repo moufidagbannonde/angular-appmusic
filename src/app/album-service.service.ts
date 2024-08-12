@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from '../../node_modules/rxjs/dist/types/index';
 import { AlbumClass } from './models/album-interface';
-import {map} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +9,13 @@ import {map} from 'rxjs';
 
 export class AlbumServiceService {
 
-  private _albumsUrl:string = "'https://monsite.fr/albums',"
-  constructor(private http:HttpClient) { }
+  constructor(
+    // private http:HttpClient
+  ) { }
   
-  albums = [
+  albums:AlbumClass[] = [
   {
+    "id": "1",
     "title": "La Vie en Rose",
     "artist": "Édith Piaf",
     "releaseDate": "1947-12-09",
@@ -39,6 +40,7 @@ export class AlbumServiceService {
     "description": "Un album iconique d'Édith Piaf contenant ses plus grands succès.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "2",
     "title": "Ne me quitte pas",
     "artist": "Jacques Brel",
     "releaseDate": "1959-09-01",
@@ -64,6 +66,7 @@ export class AlbumServiceService {
     "description": "Un chef-d'œuvre de Jacques Brel avec des chansons intemporelles.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "3",
     "title": "Mistral Gagnant",
     "artist": "Renaud",
     "releaseDate": "1985-01-01",
@@ -90,6 +93,7 @@ export class AlbumServiceService {
     "description": "Un album de Renaud avec des chansons profondément ancrées dans la culture française.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "4",
     "title": "Je te promets",
     "artist": "Johnny Hallyday",
     "releaseDate": "1986-01-01",
@@ -116,6 +120,7 @@ export class AlbumServiceService {
     "description": "Un album incontournable de Johnny Hallyday.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "5",
     "title": "Bleu Noir",
     "artist": "Mylène Farmer",
     "releaseDate": "2010-12-06",
@@ -142,6 +147,7 @@ export class AlbumServiceService {
     "description": "Un album marquant de Mylène Farmer.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "6",
     "title": "Chocolat",
     "artist": "Zazie",
     "releaseDate": "1995-01-01",
@@ -166,6 +172,7 @@ export class AlbumServiceService {
     "description": "Un album emblématique de Zazie, mélange de pop rock et de poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "7",
     "title": "Le Secret",
     "artist": "Lara Fabian",
     "releaseDate": "2013-04-15",
@@ -197,6 +204,7 @@ export class AlbumServiceService {
     "description": "Un album introspectif et puissant de Lara Fabian, mêlant émotions et poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "8",
     "title": "Les Failles",
     "artist": "Pomme",
     "releaseDate": "2019-11-01",
@@ -222,6 +230,7 @@ export class AlbumServiceService {
     "description": "Un album délicat et introspectif de Pomme, explorant les thèmes de la vulnérabilité et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "9",
     "title": "Les jours heureux",
     "artist": "Vincent Delerm",
     "releaseDate": "2016-10-28",
@@ -247,6 +256,7 @@ export class AlbumServiceService {
     "description": "Un album poétique et intimiste de Vincent Delerm, explorant des moments de bonheur simple.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "10",
     "title": "Tout oublier",
     "artist": "Angèle",
     "releaseDate": "2018-10-05",
@@ -273,6 +283,7 @@ export class AlbumServiceService {
     "description": "Un album vibrant et moderne d'Angèle, avec des chansons qui capturent les complexités de la vie contemporaine.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "11",
     "title": "Le présent d'abord",
     "artist": "Florent Pagny",
     "releaseDate": "2017-09-22",
@@ -299,6 +310,7 @@ export class AlbumServiceService {
     "description": "Un album inspirant de Florent Pagny, axé sur la présence et l'importance de vivre l'instant.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "12",
     "title": "Paradis",
     "artist": "Ben Mazué",
     "releaseDate": "2020-10-06",
@@ -325,6 +337,7 @@ export class AlbumServiceService {
     "description": "Un album touchant et poétique de Ben Mazué, explorant des thèmes de l'amour, de la perte et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   },
   {
+    "id": "13",
     "title": "Amour chien fou",
     "artist": "Serge Lama",
     "releaseDate": "2018-10-12",
@@ -351,25 +364,37 @@ export class AlbumServiceService {
     "description": "Un album puissant et émouvant de Serge Lama, explorant l'amour sous toutes ses formes.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
   }
 ]
-getAlbum(id:string): Observable<AlbumClass> | undefined {
-  return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
-    map((album:AlbumClass) => album))
+getAlbums(){
+  return this.albums.sort();
 }
-
-search(word: string): Observable<AlbumClass[]> {
-  return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
-    map((albums: AlbumClass[]) => {
-      // parcourir le tableau d'albums
-      return albums.filter(album => {
-        // retourner ceux contenant le string de la variable "word"
-        return album.title
-          .toLowerCase()
-          .includes(word.trim().toLowerCase());
-      });
-
-    })
-  )
+getAlbum(id: string){
+  return this.albums.find((el:AlbumClass)=>el.id === id);
 }
-
+getAlbumList(id:string){
 
 }
+  count(){
+    return this.albums.length;
+  }
+// getAlbum(id:string): Observable<AlbumClass> | undefined {
+//   return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
+//     map((album:AlbumClass) => album))
+// }
+
+// search(word: string): Observable<AlbumClass[]> {
+//   return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
+//     map((albums: AlbumClass[]) => {
+//       // parcourir le tableau d'albums
+//       return albums.filter(album => {
+//         // retourner ceux contenant le string de la variable "word"
+//         return album.title
+//           .toLowerCase()
+//           .includes(word.trim().toLowerCase());
+//       });
+
+//     })
+//   )
+}
+
+
+// }

@@ -1,7 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { OnInit } from '../../../node_modules/@angular/core/index';
 import { AlbumServiceService } from '../album-service.service';
-import { AlbumClass, AlbumInterface } from '../models/album-interface';
+import { AlbumClass } from '../models/album-interface';
 import { interval, map, Observable, take } from 'rxjs';
 
 
@@ -12,36 +12,48 @@ import { interval, map, Observable, take } from 'rxjs';
 })
 export class AlbumsComponent implements OnInit{
 
-  // @Output() passedValue = new EventEmitter<boolean>();
 
-  display():void {
-    this.affiche = !this.affiche ;
-  }
+  // display():void {
+  //   this.affiche = !this.affiche ;
+  // }
   
-  affiche: boolean = false;
-
-  albums !: Array<AlbumInterface>;
-
-  allAlbums !: AlbumClass[];
-
+  myAlbum !: AlbumClass[];
+selectedAlbum !: any;
+  
+  allAlbums !: AlbumClass[] ;
+  
   timerObservable!: Observable<string>;
-
-  count!: string;
-
- 
-
+  
+  count!: string;  
+  
   // time !:string;
   constructor(private Album:AlbumServiceService){}
-
+  
   ngOnInit(): void{
-    this.albums = this.Album.albums;
+    this.myAlbum = this.Album.albums;
+    this.allAlbums = this.Album.getAlbums();
+    console.log(this.allAlbums);
+    console.log(this.Album.count());
   }
+showDetails(id:string){
+  this.selectedAlbum = this.Album.getAlbum(id);
+  console.log(this.selectedAlbum);
+}
 
-  showAlbumDetails = {};
+  
+  // @Input () selectedAlbums !: AlbumInterface;
+  // @Output() passedValue = new EventEmitter<boolean>();
 
-  afficherdetails(newItem: AlbumInterface){
-    return this.albums.filter((name)=>newItem.title === name.title)
-  }
+  // @Output() selectedAlbums = new EventEmitter<AlbumClass>();
+
+  // onAlbumSelect(album: AlbumClass){
+  //   this.selectedAlbums.emit(album)
+  // }
+  // showAlbumDetails = {};
+
+  // afficherdetails(newItem: AlbumInterface){
+  //   return this.albums.filter((name)=>newItem.title === name.title)
+  // }
 search($event: AlbumClass[]){
   if($event){
     this.allAlbums = $event

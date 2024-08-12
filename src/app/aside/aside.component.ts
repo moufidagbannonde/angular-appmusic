@@ -8,14 +8,18 @@ import { AlbumClass, AlbumInterface } from '../models/album-interface';
   styleUrl: './aside.component.css'
 })
 export class AsideComponent {
-  @Input() albumdetails !:AlbumInterface;
 
-  @Output() newItemEvent = new EventEmitter<AlbumInterface>();
+  // image:string = "../../assets/capeverdeflag.jpg"
+  @Input() album!: AlbumClass;
 
-  afficheDetails(valeur: AlbumInterface){
-      this.newItemEvent.emit(valeur);
-      console.log(valeur);
+  @Output() onPlay: EventEmitter<AlbumClass> = new EventEmitter();
+
+  play(album: AlbumClass) {
+    this.onPlay.emit(album);
   }
- 
+  constructor() { }
+  ngOnInit() {
+    console.log(this.album);
   }
+}
 

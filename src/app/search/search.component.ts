@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgForm } from '../../../node_modules/@angular/forms/index';
+// import { NgForm } from '../../../node_modules/@angular/forms/index';
 import { AlbumServiceService } from '../album-service.service';
 import { AlbumClass } from '../models/album-interface';
 

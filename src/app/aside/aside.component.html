@@ -2,3 +2,27 @@
 <!-- <button type="button" (click)="afficheDetails(newItem.value)">
 Afficher détails
 </button> -->
+<div class="container">
+    <h1>{{album.title}}</h1>
+    <img src="../../assets/capeverdeflag.jpg" alt="">
+
+    <div> Name : {{album.title}}</div>
+    <div>Genre : {{album.genre}}</div>
+    <div>Label : {{album.label}}</div>
+    <div>Auteur : {{album.artist}}</div>
+    <div>Date de sortie : {{album.releaseDate}}</div>
+
+
+    <div class="toplay">
+        <button>Play</button>
+    </div><br>
+
+    <h2 class="songsDiv">List of songs</h2>
+
+    <ul>
+        <li *ngFor="let track in album.tracks">{{ track.title}}</li><br>
+
+        <!-- j'utilise un ngFor pour parcourir le tableau contenant les titres des autres chansons -->
+    </ul>
+
+</div>
