@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AlbumClass } from './models/album-interface';
-import { map, Observable } from 'rxjs';
+import { AlbumClass, AlbumList } from './models/album-interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 
 
@@ -9,10 +10,12 @@ import { map, Observable } from 'rxjs';
 })
 
 export class AlbumServiceService {
+
+
   // private _albumsUrl: string = environment.albumUrl;
 
+  private _albumListUrl: string = "https://localhost:51980/{albumm.id}"
   constructor(
-    // private http:HttpClient
   ) { }
 
   albums: AlbumClass[] = [
@@ -378,40 +381,36 @@ export class AlbumServiceService {
   // }
 
 
-getAlbums(){
+  getAlbums(): AlbumClass[] {
     return this.albums.sort();
   }
-getAlbum(id: string){
+  getAlbum(id: string): AlbumClass | undefined {
     return this.albums.find((el: AlbumClass) => el.id === id);
   }
-getAlbumList(id: string){
-    return this.albums.filter((element: AlbumClass) => {
-      return element.id === id;
-    })
-  }
-  count(){
+  
+  count() {
     return this.albums.length;
   }
   // paginate(start: number, end:number): AlbumClass{}[]
-// getAlbum(id:string): Observable<AlbumClass> | undefined {
-//   return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
-//     map((album:AlbumClass) => album))
-// }
+  // getAlbum(id:string): Observable<AlbumClass> | undefined {
+  //   return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
+  //     map((album:AlbumClass) => album))
+  // }
 
-// search(word: string): Observable < AlbumClass[] > {
-//     return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
-//       map((albums: AlbumClass[]) => {
-//         // parcourir le tableau d'albums
-//         return albums.filter(album => {
-//           // retourner ceux contenant le string de la variable "word"
-//           return album.title
-//             .toLowerCase()
-//             .includes(word.trim().toLowerCase());
-//         });
+  // search(word: string): Observable < AlbumClass[] > {
+  //     return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
+  //       map((albums: AlbumClass[]) => {
+  //         // parcourir le tableau d'albums
+  //         return albums.filter(album => {
+  //           // retourner ceux contenant le string de la variable "word"
+  //           return album.title
+  //             .toLowerCase()
+  //             .includes(word.trim().toLowerCase());
+  //         });
 
-//       })
-//     )
-//   }
+  //       })
+  //     )
+  //   }
 
 
 }

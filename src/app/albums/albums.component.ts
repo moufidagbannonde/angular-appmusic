@@ -3,6 +3,7 @@ import { OnInit } from '../../../node_modules/@angular/core/index';
 import { AlbumServiceService } from '../album-service.service';
 import { AlbumClass } from '../models/album-interface';
 import {Observable } from 'rxjs';
+import {Router} from '@angular/router'
 
 
 @Component({
@@ -11,6 +12,9 @@ import {Observable } from 'rxjs';
   styleUrl: './albums.component.css'
 })
 export class AlbumsComponent implements OnInit {
+
+  filteredAlbumList: AlbumClass[] = [];
+
 
 
   // display():void {
@@ -31,7 +35,10 @@ export class AlbumsComponent implements OnInit {
   count!: string;
 
   // time !:string;
-  constructor(private Album: AlbumServiceService) { }
+  constructor(private Album: AlbumServiceService, private router:Router) { 
+    this.myAlbum = this.Album.getAlbums();
+    this.filteredAlbumList = this.myAlbum;
+  }
 
   ngOnInit(): void {
     this.myAlbum = this.Album.albums;
@@ -39,7 +46,18 @@ export class AlbumsComponent implements OnInit {
     console.log(this.allAlbums);
     console.log(this.Album.count());
   }
+  albumView(id:string){
+    this.selectedAlbum = this.Album.getAlbum(id)
+  this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
+  }
+  
+filterResults(text: string){
+  if(!text){
+    this.filteredAlbumList = this.myAlbum;
+  }
+  this.filteredAlbumList = this.myAlbum.filter(albumlist => albumlist?.title.toLowerCase().includes(text.toLowerCase()));
 
+}
   showDetails(id: string) {
     this.affiche = true;
     this.selectedAlbum = this.Album.getAlbum(id);

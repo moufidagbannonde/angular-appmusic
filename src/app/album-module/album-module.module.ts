@@ -5,6 +5,7 @@ import { AsideComponent } from '../aside/aside.component';
 import { SearchComponent } from '../search/search.component';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { LoginComponent } from '../login/login.component';
+import { AlbumDescriptionComponent } from '../album-description/album-description.component';
 
 
 
@@ -14,7 +15,8 @@ import { LoginComponent } from '../login/login.component';
     AsideComponent, 
     SearchComponent,
   NavigationComponent,
-  LoginComponent
+  LoginComponent,
+  AlbumDescriptionComponent
 ],
   imports: [
     CommonModule
@@ -24,7 +26,8 @@ import { LoginComponent } from '../login/login.component';
     AsideComponent,
     SearchComponent,
     NavigationComponent,
-    LoginComponent
+    LoginComponent,
+    AlbumDescriptionComponent
 
   ]
 })

@@ -26,3 +26,7 @@ export class AlbumClass {
         public description ?: string,
     ) { }
 }
+export interface AlbumList {
+    id:string,
+    list:string[]
+}

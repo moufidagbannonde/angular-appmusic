@@ -1,0 +1,31 @@
+.div {
+    display: flex;
+    margin: 0 auto;
+    padding: 25px  20px;
+    max-width: 1500px;
+    height: 100px;
+    font-size: 15px;
+    font-family: cursive;
+    background-color: rgba(39, 251, 247, 0.896);
+    text-align: left;
+    gap: 05px;
+  }
+  div > nav {
+    color: black;
+    display: flex;
+    margin-right: 20px;
+    /* gap: 200px; */
+    /* justify-content: space-around; */
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  p {
+    padding-right: 15px;
+    padding: 15px;
+    background-color: rgba(128, 255, 0, 0.693);
+    border-radius: 20px;
+  }
