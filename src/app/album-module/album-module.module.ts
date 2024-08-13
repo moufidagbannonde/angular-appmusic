@@ -6,7 +6,7 @@ import { SearchComponent } from '../search/search.component';
 import { NavigationComponent } from '../navigation/navigation.component';
 import { LoginComponent } from '../login/login.component';
 import { AlbumDescriptionComponent } from '../album-description/album-description.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +19,8 @@ import { AlbumDescriptionComponent } from '../album-description/album-descriptio
   AlbumDescriptionComponent
 ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     AlbumsComponent,

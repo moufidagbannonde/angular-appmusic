@@ -11,7 +11,7 @@ import { OnInit } from '../../../node_modules/@angular/core/index';
 })
 export class AlbumDescriptionComponent implements OnInit {
   
-  album ?: AlbumClass;
+  album !: any ;
   constructor(private albumService: AlbumServiceService, private route: ActivatedRoute) { }
   ngOnInit(): void {
     this.getOneAlbum();

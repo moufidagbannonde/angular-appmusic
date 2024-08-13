@@ -1,9 +1,10 @@
-import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { OnInit } from '../../../node_modules/@angular/core/index';
 import { AlbumServiceService } from '../album-service.service';
-import { AlbumClass } from '../models/album-interface';
+import { AlbumClass, AlbumInterface } from '../models/album-interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router'
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class AlbumsComponent implements OnInit {
   filteredAlbumList: AlbumClass[] = [];
 
 
-  word !: string;
+  mot !: string;
   // display():void {
   //   this.affiche = !this.affiche ;
   // }
@@ -34,7 +35,7 @@ export class AlbumsComponent implements OnInit {
 
   count!: string;
 
-  searching?: AlbumClass[]
+  searching !: AlbumClass[]
   // time !:string;
   constructor(private Album: AlbumServiceService, private router: Router) {
     this.myAlbum = this.Album.getAlbums();
@@ -47,6 +48,7 @@ export class AlbumsComponent implements OnInit {
     // récupérer la 
     this.allAlbums = this.Album.getAlbums();
     //  this.Album.paginate(0, this.Album.paginateNumberPage())
+    console.log(this.word)
   }
 
   albumView(id: string) {
@@ -56,18 +58,27 @@ export class AlbumsComponent implements OnInit {
     this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
   }
 
+
   showDetails(id: string) {
     this.affiche = true;
     this.selectedAlbum = this.Album.getAlbum(id);
     // console.log(this.selectedAlbum);
   }
 
-  search(word: string) {
-    this.searching = this.allAlbums.filter((el: AlbumClass) => {
-      el.title.toLowerCase().includes(word);
-    })
-    console.log(this.searching);
-    return this.searching;
+  word: string = "";
+
+  search() {
+    if (this.word.trim() !== "") {
+      return this.searching = this.allAlbums.filter(
+        (el: AlbumClass) => {
+          el.title.toLowerCase().includes(this.word.toLowerCase());
+          console.log(this.searching);
+          console.log(this.word)
+        }
+      )
+    } else {
+      return this.allAlbums;
+    }
   }
 
 }

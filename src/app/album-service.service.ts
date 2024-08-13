@@ -57,7 +57,7 @@ export class AlbumServiceService {
         { "trackNumber": 9, "title": "Je t'ai dans la peau", "duration": "3:15" },
         { "trackNumber": 10, "title": "La Goualante du pauvre Jean", "duration": "2:30" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/capeverdeflag.jpg",
       "description": "Un album iconique d'Édith Piaf contenant ses plus grands succès.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -83,7 +83,7 @@ export class AlbumServiceService {
         { "trackNumber": 10, "title": "Marieke", "duration": "2:48" },
         { "trackNumber": 11, "title": "Le Plat Pays", "duration": "2:51" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/nikanor.jpeg",
       "description": "Un chef-d'œuvre de Jacques Brel avec des chansons intemporelles.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -110,7 +110,7 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Les Animals", "duration": "3:20" },
         { "trackNumber": 12, "title": "Chanson pour Pierrot", "duration": "3:30" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/qrcode_chrome.png",
       "description": "Un album de Renaud avec des chansons profondément ancrées dans la culture française.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -137,7 +137,7 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Requiem pour un fou", "duration": "4:37" },
         { "trackNumber": 12, "title": "Diego, libre dans sa tête", "duration": "3:45" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/angelique.jpg",
       "description": "Un album incontournable de Johnny Hallyday.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -164,7 +164,7 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Inséparables", "duration": "4:16" },
         { "trackNumber": 12, "title": "Désobéissance", "duration": "5:14" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/zeynab.jpg",
       "description": "Un album marquant de Mylène Farmer.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -189,7 +189,7 @@ export class AlbumServiceService {
         { "trackNumber": 9, "title": "Rodeo", "duration": "4:25" },
         { "trackNumber": 10, "title": "Rue de la paix", "duration": "4:58" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/pedro.jpg",
       "description": "Un album emblématique de Zazie, mélange de pop rock et de poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -221,7 +221,7 @@ export class AlbumServiceService {
         { "trackNumber": 16, "title": "Yver, vous n'estes qu'un villain", "duration": "4:00" },
         { "trackNumber": 17, "title": "Growing Wings", "duration": "4:06" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/montglacial.jpg",
       "description": "Un album introspectif et puissant de Lara Fabian, mêlant émotions et poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -290,7 +290,7 @@ export class AlbumServiceService {
           "duration": "3:20"
         }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/glacier.jpg",
       "description": "Un album délicat et introspectif de Pomme, explorant les thèmes de la vulnérabilité et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -316,7 +316,7 @@ export class AlbumServiceService {
         { "trackNumber": 10, "title": "Les piqûres d'araignée", "duration": "3:14" },
         { "trackNumber": 11, "title": "Fanny Ardant et moi", "duration": "3:47" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/davido.jpg",
       "description": "Un album poétique et intimiste de Vincent Delerm, explorant des moments de bonheur simple.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -343,7 +343,7 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Je veux tes yeux", "duration": "3:15" },
         { "trackNumber": 12, "title": "Le temps fera les choses", "duration": "3:12" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/fanicko.jpg",
       "description": "Un album vibrant et moderne d'Angèle, avec des chansons qui capturent les complexités de la vie contemporaine.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {
@@ -370,7 +370,7 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Rafale de vent", "duration": "4:09" },
         { "trackNumber": 12, "title": "Pour tourner la page", "duration": "3:40" }
       ],
-      "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
+      "coverImage": "src/assets/burna-boy.jpg",
       "description": "Un album inspirant de Florent Pagny, axé sur la présence et l'importance de vivre l'instant.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
     },
     {

@@ -1,6 +1,6 @@
 <div *ngIf="album" class="albums">
-    <div class="img">
-        <img *ngIf="album.coverImage" [src]="album.coverImage" alt="image">
+    <div class="img" *ngIf="album.coverImage">
+        <img  [src]="album.coverImage" alt="image">
     </div>
     <div class="h2">
         <h2>{{album.genre}}</h2>
