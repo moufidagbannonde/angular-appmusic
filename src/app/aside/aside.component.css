@@ -12,3 +12,19 @@
 h2 {
     font-size: 25px;
 }
+.progres {
+    height: 20px;
+    border: 1px solid ;
+    border-radius: 7px;
+    width: 200px;
+}
+.progress-bar {
+    height: 18px;
+    padding: 1px;
+    /* border-radius: 20px; */
+    border-radius: 7px;
+    background-color: chartreuse;
+}
+.progress {
+    background-color: chartreuse;
+}

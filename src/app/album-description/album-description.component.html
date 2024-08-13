@@ -1,6 +1,6 @@
-<div *ngIf="album">
+<div *ngIf="album" class="albums">
     <div class="img">
-        <img src="./capeverdeflag.jpg" alt="">
+        <img *ngIf="album.link" [src]="album.link" alt="image">
     </div>
     <div class="h2">
         <h2>{{album.genre}}</h2>
@@ -10,9 +10,9 @@
         <p>{{ album.description }}</p>
         <span class="word" *ngFor="let tag of album.tags">{{
             tag
-            }}</span>    
+            }}</span>
         <div class="bottom">
-            <button>en</button>
+            <button class="btn">en</button>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart"
                 viewBox="0 0 16 16">
                 <path

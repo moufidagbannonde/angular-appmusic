@@ -43,21 +43,22 @@ export class AlbumsComponent implements OnInit {
   ngOnInit(): void {
     this.myAlbum = this.Album.albums;
     this.allAlbums = this.Album.getAlbums();
-    console.log(this.allAlbums);
-    console.log(this.Album.count());
+  //  this.Album.paginate(0, this.Album.paginateNumberPage())
   }
+
+
   albumView(id:string){
     this.selectedAlbum = this.Album.getAlbum(id)
   this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
   }
-  
-filterResults(text: string){
-  if(!text){
-    this.filteredAlbumList = this.myAlbum;
-  }
-  this.filteredAlbumList = this.myAlbum.filter(albumlist => albumlist?.title.toLowerCase().includes(text.toLowerCase()));
 
-}
+
+// filterResults(text: string){
+//   if(!text){
+//     this.filteredAlbumList = this.myAlbum;
+//   }
+//   this.filteredAlbumList = this.myAlbum.filter(albumlist => albumlist?.title.toLowerCase().includes(text.toLowerCase()));
+// }
   showDetails(id: string) {
     this.affiche = true;
     this.selectedAlbum = this.Album.getAlbum(id);

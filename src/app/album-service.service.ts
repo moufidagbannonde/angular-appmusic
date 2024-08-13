@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AlbumClass, AlbumList } from './models/album-interface';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
-
-
+import { map } from 'rxjs'
+import { Observable } from '../../node_modules/rxjs/dist/types/index';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,26 @@ export class AlbumServiceService {
 
   // private _albumsUrl: string = environment.albumUrl;
 
-  private _albumListUrl: string = "https://localhost:51980/{albumm.id}"
+  // est à lafois un observable et un observeur
+  subjectAlbum = new Subject<AlbumClass>();
   constructor(
   ) { }
 
+  // swithOn(album: AlbumClass): void{
+  //   album.genre = "on";
+
+  //   this.http.put<void>(this._albumsUrl + '/' + album.id, album).subscribe({
+  //     next: (data: void) =>console.log(data),
+  //     error: (err: any) => console.warn(err),
+  //     complete: () => this.subjectAlbum.next(album)
+  //   })
+  // }
+
+  // switchOff(album: AlbumClass): void {
+  //   album.genre = "off";
+
+  //   this.http.put<void>(`${this._albumsUrl}/${album.id}`, album).subscribe(()=>{})
+  // }
   albums: AlbumClass[] = [
     {
       "id": "1",
@@ -42,7 +58,8 @@ export class AlbumServiceService {
         { "trackNumber": 10, "title": "La Goualante du pauvre Jean", "duration": "2:30" }
       ],
       "coverImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJFl0g95JmB6hzj9HejCtbG8SoDFcCRKP2Tg&s",
-      "description": "Un album iconique d'Édith Piaf contenant ses plus grands succès.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album iconique d'Édith Piaf contenant ses plus grands succès.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "2",
@@ -68,7 +85,8 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Le Plat Pays", "duration": "2:51" }
       ],
       "coverImage": "https://images.radio-canada.ca/v1/audio/16x9/jacques-brel-chanteur-belgique-france-archives.jpg",
-      "description": "Un chef-d'œuvre de Jacques Brel avec des chansons intemporelles.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un chef-d'œuvre de Jacques Brel avec des chansons intemporelles.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "3",
@@ -95,7 +113,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Chanson pour Pierrot", "duration": "3:30" }
       ],
       "coverImage": "https://resize.elle.fr/portrait/var/plain_site/storage/images/people/la-vie-des-people/news/le-chanteur-renaud-a-ete-hospitalise-en-urgence-3750936/89626085-1-fre-FR/Le-chanteur-Renaud-a-ete-hospitalise-en-urgence.jpg",
-      "description": "Un album de Renaud avec des chansons profondément ancrées dans la culture française.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album de Renaud avec des chansons profondément ancrées dans la culture française.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "/assets/capeverdeflag.jpg"
     },
     {
       "id": "4",
@@ -122,7 +141,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Diego, libre dans sa tête", "duration": "3:45" }
       ],
       "coverImage": "https://images.rtl.fr/~c/2000v2000/rtl/www/1274240-johnny-hallyday-le-15-decembre-2003.jpg",
-      "description": "Un album incontournable de Johnny Hallyday.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album incontournable de Johnny Hallyday.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "5",
@@ -149,7 +169,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Désobéissance", "duration": "5:14" }
       ],
       "coverImage": "https://www.mylene.net/img_/desobeissance1.jpg",
-      "description": "Un album marquant de Mylène Farmer.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album marquant de Mylène Farmer.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "6",
@@ -174,7 +195,8 @@ export class AlbumServiceService {
         { "trackNumber": 10, "title": "Rue de la paix", "duration": "4:58" }
       ],
       "coverImage": "https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/vdn_1_1_320w/2024/03/11/node_1439424/57897585/public/2024/03/11/14000775.jpeg?itok=n_dBq_n11710260913",
-      "description": "Un album emblématique de Zazie, mélange de pop rock et de poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album emblématique de Zazie, mélange de pop rock et de poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "7",
@@ -206,7 +228,8 @@ export class AlbumServiceService {
         { "trackNumber": 17, "title": "Growing Wings", "duration": "4:06" }
       ],
       "coverImage": "https://m1.quebecormedia.com/emp/emp/Crops65585e90-1bb4-4f9c-b596-4d4f2e9a7ad5_ORIGINAL.jpg?impolicy=crop-resize&x=0&y=0&w=1333&h=2000&width=960",
-      "description": "Un album introspectif et puissant de Lara Fabian, mêlant émotions et poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album introspectif et puissant de Lara Fabian, mêlant émotions et poésie.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "8",
@@ -232,7 +255,8 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Lueur", "duration": "3:20" }
       ],
       "coverImage": "https://assets-global.website-files.com/62ee0bbe0c783a903ecc0ddb/65d6b842b866943f0be86695_Flaunt_Pomme.jpg",
-      "description": "Un album délicat et introspectif de Pomme, explorant les thèmes de la vulnérabilité et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album délicat et introspectif de Pomme, explorant les thèmes de la vulnérabilité et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "9",
@@ -258,7 +282,8 @@ export class AlbumServiceService {
         { "trackNumber": 11, "title": "Fanny Ardant et moi", "duration": "3:47" }
       ],
       "coverImage": "https://www.parismatch.com/lmnr/var/pm/public/media/image/2022/03/06/19/Vincent-Delerm-fait-son-cinema.jpg?VersionId=TdqinBoKthhxJG59cJqoXy3MIENVOyFN",
-      "description": "Un album poétique et intimiste de Vincent Delerm, explorant des moments de bonheur simple.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album poétique et intimiste de Vincent Delerm, explorant des moments de bonheur simple.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "10",
@@ -285,7 +310,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Le temps fera les choses", "duration": "3:12" }
       ],
       "coverImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/P2NAngele_3.jpg/1200px-P2NAngele_3.jpg",
-      "description": "Un album vibrant et moderne d'Angèle, avec des chansons qui capturent les complexités de la vie contemporaine.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album vibrant et moderne d'Angèle, avec des chansons qui capturent les complexités de la vie contemporaine.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "11",
@@ -312,7 +338,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Pour tourner la page", "duration": "3:40" }
       ],
       "coverImage": "https://www.lesecransdeparis.fr/wp-content/uploads/2023/04/florent-pagny-lutte-contre-le-cancer-des-nouvelles-de-sa-co-autrice-768x432.jpg",
-      "description": "Un album inspirant de Florent Pagny, axé sur la présence et l'importance de vivre l'instant.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album inspirant de Florent Pagny, axé sur la présence et l'importance de vivre l'instant.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "12",
@@ -339,7 +366,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "Quand je marche (version acoustique)", "duration": "4:08" }
       ],
       "coverImage": "https://www.jeunessesmusicales.be/liege/wp-content/uploads/sites/5/2016/10/ben-mazue-02-825x510.jpg",
-      "description": "Un album touchant et poétique de Ben Mazué, explorant des thèmes de l'amour, de la perte et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album touchant et poétique de Ben Mazué, explorant des thèmes de l'amour, de la perte et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     },
     {
       "id": "13",
@@ -366,7 +394,8 @@ export class AlbumServiceService {
         { "trackNumber": 12, "title": "L'envie", "duration": "4:35" }
       ],
       "coverImage": "https://www.lejdd.fr/lmnr/var/jdd/public/media/image/2022/07/21/23/serge-lama-l-homme-blesse.jpg?VersionId=7bqax1oNwvbzT_hj4qRRsWAOMk14qVzR",
-      "description": "Un album puissant et émouvant de Serge Lama, explorant l'amour sous toutes ses formes.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam."
+      "description": "Un album puissant et émouvant de Serge Lama, explorant l'amour sous toutes ses formes.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",
+      "link": "assets/capeverdeflag.jpg"
     }
   ]
 
@@ -387,30 +416,12 @@ export class AlbumServiceService {
   getAlbum(id: string): AlbumClass | undefined {
     return this.albums.find((el: AlbumClass) => el.id === id);
   }
-  
+
   count() {
     return this.albums.length;
   }
-  // paginate(start: number, end:number): AlbumClass{}[]
-  // getAlbum(id:string): Observable<AlbumClass> | undefined {
-  //   return this.http.get<AlbumClass>(this._albumsUrl + '/' + id).pipe(
-  //     map((album:AlbumClass) => album))
-  // }
-
-  // search(word: string): Observable < AlbumClass[] > {
-  //     return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(
-  //       map((albums: AlbumClass[]) => {
-  //         // parcourir le tableau d'albums
-  //         return albums.filter(album => {
-  //           // retourner ceux contenant le string de la variable "word"
-  //           return album.title
-  //             .toLowerCase()
-  //             .includes(word.trim().toLowerCase());
-  //         });
-
-  //       })
-  //     )
-  //   }
-
+  paginate(start: number, end: number): AlbumClass[] {
+    return this.albums.slice(start, end)
+  }
 
 }

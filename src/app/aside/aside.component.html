@@ -1,9 +1,12 @@
 <!-- <button type="button" (click)="afficheDetails(newItem.value)">
 Afficher détails
 </button> -->
+
+
+
 <div class=" card mb-3 container">
     <h1>{{album.title}}</h1>
-    <img src="../../assets/capeverdeflag.jpg" alt="">
+    <img src="{{album.link}}" alt="">
     <div> Name : {{album.title}}</div>
     <div>Genre : {{album.genre}}</div>
     <div>Label : {{album.label}}</div>
@@ -12,9 +15,13 @@ Afficher détails
 
 
     <div class="toplay">
-        <button>Play</button>
+        <button (click)="play()" class="btn btn-primary">Play 🎶</button>
     </div><br>
+    <div class="progres" *ngIf="playing">
+        <div class="progress-bar" role="progressbar" [style.width.%]="ratio" >
 
+        </div>
+    </div>
     <h2 class="songsDiv">List of songs</h2>
 
     <span class="word" *ngFor="let track of album.tracks">
