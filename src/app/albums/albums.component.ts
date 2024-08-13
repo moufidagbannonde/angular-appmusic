@@ -2,8 +2,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { OnInit } from '../../../node_modules/@angular/core/index';
 import { AlbumServiceService } from '../album-service.service';
 import { AlbumClass } from '../models/album-interface';
-import {Observable } from 'rxjs';
-import {Router} from '@angular/router'
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router'
 
 
 @Component({
@@ -16,12 +16,12 @@ export class AlbumsComponent implements OnInit {
   filteredAlbumList: AlbumClass[] = [];
 
 
-
+  word !: string;
   // display():void {
   //   this.affiche = !this.affiche ;
   // }
 
-  affiche : boolean = false;
+  affiche: boolean = false;
   myAlbum !: AlbumClass[];
 
   selectedAlbum !: any;
@@ -34,59 +34,40 @@ export class AlbumsComponent implements OnInit {
 
   count!: string;
 
+  searching?: AlbumClass[]
   // time !:string;
-  constructor(private Album: AlbumServiceService, private router:Router) { 
+  constructor(private Album: AlbumServiceService, private router: Router) {
     this.myAlbum = this.Album.getAlbums();
     this.filteredAlbumList = this.myAlbum;
   }
 
   ngOnInit(): void {
+    // au chargement de la page
     this.myAlbum = this.Album.albums;
+    // récupérer la 
     this.allAlbums = this.Album.getAlbums();
-  //  this.Album.paginate(0, this.Album.paginateNumberPage())
+    //  this.Album.paginate(0, this.Album.paginateNumberPage())
   }
 
-
-  albumView(id:string){
+  albumView(id: string) {
+    // récupérer l'album à travers son id
     this.selectedAlbum = this.Album.getAlbum(id)
-  this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
+    // naviguer à travers la route /album/:id
+    this.router.navigateByUrl(`album/${this.selectedAlbum.id}`)
   }
 
-
-// filterResults(text: string){
-//   if(!text){
-//     this.filteredAlbumList = this.myAlbum;
-//   }
-//   this.filteredAlbumList = this.myAlbum.filter(albumlist => albumlist?.title.toLowerCase().includes(text.toLowerCase()));
-// }
   showDetails(id: string) {
     this.affiche = true;
     this.selectedAlbum = this.Album.getAlbum(id);
     // console.log(this.selectedAlbum);
   }
 
-
-  // @Input () selectedAlbums !: AlbumInterface;
-  // @Output() passedValue = new EventEmitter<boolean>();
-
-  // @Output() selectedAlbums = new EventEmitter<AlbumClass>();
-
-  // onAlbumSelect(album: AlbumClass){
-  //   this.selectedAlbums.emit(album)
-  // }
-  // showAlbumDetails = {};
-
-  // afficherdetails(newItem: AlbumInterface){
-  //   return this.albums.filter((name)=>newItem.title === name.title)
-  // }
-  search($event: AlbumClass[]) {
-    if ($event) {
-      this.allAlbums = $event
-    }
+  search(word: string) {
+    this.searching = this.allAlbums.filter((el: AlbumClass) => {
+      el.title.toLowerCase().includes(word);
+    })
+    console.log(this.searching);
+    return this.searching;
   }
-  // disk !:AlbumInterface;
-  // asideShower(album: AlbumInterface){
-  //   this.aside = true;
-  //   this.disk = album;
-  // }
+
 }

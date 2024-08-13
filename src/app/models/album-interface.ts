@@ -2,7 +2,6 @@ export interface AlbumInterface {
     title: string;
     artist: string;
     releaseDate: string;
-    link: string;
     genre: string;
     label: string;
     trackCount: number;
@@ -16,7 +15,6 @@ export class AlbumClass {
         public id: string,
         public title: string, 
         public artist: string,
-        public link: string,
         public releaseDate: string,
         public genre:string,
         public label: string,
