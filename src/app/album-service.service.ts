@@ -242,17 +242,60 @@ export class AlbumServiceService {
       "duration": "38:42",
       "tags": ["consectetur", "adipisicing", "elit", "Ratione", "nisi"],
       "tracks": [
-        { "trackNumber": 1, "title": "Jardin", "duration": "2:58" },
-        { "trackNumber": 2, "title": "Je sais pas danser", "duration": "2:52" },
-        { "trackNumber": 3, "title": "La Lumière", "duration": "3:34" },
-        { "trackNumber": 4, "title": "Grandiose", "duration": "3:14" },
-        { "trackNumber": 5, "title": "Une Minute", "duration": "3:07" },
-        { "trackNumber": 6, "title": "Anxiété", "duration": "3:12" },
-        { "trackNumber": 7, "title": "Pourquoi la mort te fait peur", "duration": "3:08" },
-        { "trackNumber": 8, "title": "Les Séquoias", "duration": "3:46" },
-        { "trackNumber": 9, "title": "La Gare", "duration": "3:30" },
-        { "trackNumber": 10, "title": "Soleil Soleil", "duration": "3:01" },
-        { "trackNumber": 11, "title": "Lueur", "duration": "3:20" }
+        {
+          "trackNumber": 1,
+          "title": "Jardin",
+          "duration": "2:58"
+        },
+        {
+          "trackNumber": 2,
+          "title": "Je sais pas danser",
+          "duration": "2:52"
+        },
+        {
+          "trackNumber": 3,
+          "title": "La Lumière",
+          "duration": "3:34"
+        },
+        {
+          "trackNumber": 4,
+          "title": "Grandiose",
+          "duration": "3:14"
+        },
+        {
+          "trackNumber": 5,
+          "title": "Une Minute",
+          "duration": "3:07"
+        },
+        {
+          "trackNumber": 6,
+          "title": "Anxiété",
+          "duration": "3:12"
+        },
+        {
+          "trackNumber": 7,
+          "title": "Pourquoi la mort te fait peur", "duration": "3:08"
+        },
+        {
+          "trackNumber": 8,
+          "title": "Les Séquoias",
+          "duration": "3:46"
+        },
+        {
+          "trackNumber": 9,
+          "title": "La Gare",
+          "duration": "3:30"
+        },
+        {
+          "trackNumber": 10,
+          "title": "Soleil Soleil",
+          "duration": "3:01"
+        },
+        {
+          "trackNumber": 11,
+          "title": "Lueur",
+          "duration": "3:20"
+        }
       ],
       "coverImage": "https://assets-global.website-files.com/62ee0bbe0c783a903ecc0ddb/65d6b842b866943f0be86695_Flaunt_Pomme.jpg",
       "description": "Un album délicat et introspectif de Pomme, explorant les thèmes de la vulnérabilité et de la résilience.Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione nisi exercitationem explicabo nulla sit molestiae aliquid voluptates distinctio quam quasi atque, totam quo eos, quia nobis nesciunt minima corporis ullam.",

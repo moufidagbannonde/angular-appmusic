@@ -23,7 +23,7 @@ export class AlbumClass {
         public trackCount: number,
         public duration: string,
         public tags?: string[],
-        public tracks ?: any,
+        public tracks ?: any[],
         public coverImage ?: any,
         public description ?: string,
     ) { }

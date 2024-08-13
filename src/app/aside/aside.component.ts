@@ -27,7 +27,7 @@ export class AsideComponent {
   albums !: AlbumClass[]
 
   calcul(): void{
-    this.sum = this.album.tracks
+    // this.sum = this.album.tracks?.find
     // .map((arr: number,curr: number) =>arr+curr, 0);
     console.log(this.sum)
   }

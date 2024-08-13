@@ -82,16 +82,9 @@ h3 {
 article h3:hover {
     text-decoration: underline;
 }
-
 article {
     margin-top: 1px;
 }
-
-/* section {
-    border: 2px solid white;
-    padding: 15px 0px 25px 20px;
-    box-shadow: 5px 5px 10px rgba(129, 127, 127, 0.872);
-} */
 
 .bottom {
     display: flex;
@@ -109,51 +102,7 @@ article {
     gap: 15px;
 }
 
-.divbuttons {
-    display: flex;
-    gap: 15px;
-    margin: 20px 100px 20px;
-    justify-content: center;
-    border-radius: 8px;
-}
 
-.prev,
-.next {
-    width: 60px;
-    height: 35px;
-}
-
-.numberBtn {
-    width: 100px;
-    border-radius: 8px;
-}
-
-.divbuttons>button {
-    color: aqua;
-    border: 1px solid blue;
-    background-color: gray;
-    border-radius: 8px;
-    -webkit-box-shadow: 6px -3px 42px 0px rgba(0, 0, 0, 0);
-    -moz-box-shadow: 6px -3px 42px 0px rgba(12, 42, 233, 0.902);
-    box-shadow: 6px -3px 42px 0px rgba(0, 0, 0, 0);
-}
-
-
-#myProgress {
-    width: 50%;
-    background-color: grey;
-}
-
-#myBar {
-    width: 10%;
-    height: 30px;
-    background-color: green;
-}
-
-.click {
-    width: 200px;
-    text-align: center;
-}
 
 .conteneur {
     margin: 0 auto;
@@ -166,28 +115,6 @@ article {
     box-shadow: 5px 5px 10px rgba(129, 127, 127, 0.872);
 }
 
-input {
-    height: 50px;
-    text-align: center;
-    width: 650px;
-    border: none;
-    margin-right: 30px;
-    box-shadow: 5px 5px 10px rgba(129, 127, 127, 0.874);
-}
-
-#search {
-    height: 40px;
-    /* background-color: black; */
-    color: rgb(113, 47, 255);
-    border: none;
-    /* border-radius: 40px; */
-}
-
 button:hover {
-    /* background-color: rgb(0, 255, 34); */
-    color: black;
-    font-size: 15px;
-    padding: 10px;
     cursor: pointer;
-    border-radius: 50px;
 }
