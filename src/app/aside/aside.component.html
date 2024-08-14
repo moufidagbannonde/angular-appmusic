@@ -15,16 +15,17 @@ Afficher détails
 
 
     <div class="toplay">
-        <button (click)="play()" class="btn btn-primary">Play 🎶</button>
-    </div><br>
-    <div class="progres" *ngIf="playing">
-        <div class="progress-bar" role="progressbar" [style.width.%]="ratio" >
+        <button (click)="play()" class="btn btn-primary">Play 🎶</button><br>
+        <span *ngIf="playing">{{ratio}} / {{album.trackCount}}</span>
+        <div class="progress" *ngIf="playing">
+            <div class="progress-bar" role="progressbar" [style.width.%]="ratio">
 
-        </div>
+            </div>
+        </div><br>
     </div><br>
     <h2 class="songsDiv">List of songs</h2>
 
     <span class="word" *ngFor="let track of album.tracks">
-        {{track.trackNumber}}. {{ track.title }} ({{track.duration}})
+        {{track.trackNumber}}. {{ track.title }} ({{track.duration}} min)
     </span>
 </div>

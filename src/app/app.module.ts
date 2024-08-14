@@ -7,7 +7,6 @@ import { PaginateComponent } from './paginate/paginate.component';
 import { AlbumDescriptionComponent } from './album-description/album-description.component';
 import { LoginComponent } from './login/login.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { SearchComponent } from './search/search.component';
 import { AsideComponent } from './aside/aside.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { FormsModule } from '@angular/forms';
@@ -19,8 +18,7 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     PaginateComponent,
     AlbumsComponent, 
-    AsideComponent, 
-    SearchComponent,
+    AsideComponent,
   NavigationComponent,
   LoginComponent,
   AlbumDescriptionComponent,

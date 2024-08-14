@@ -38,11 +38,14 @@ export class AlbumsComponent implements OnInit {
   searching !: AlbumClass[];
 
   // time !:string;
+
+  // constructeur
   constructor(private Album: AlbumServiceService, private router: Router) {
     this.myAlbum = this.Album.getAlbums();
     this.filteredAlbumList = this.myAlbum;
   }
-  
+
+  // fonction de recherche d'un album
   filterResults(text: string) {
     if (!text) {
       this.filteredAlbumList = this.myAlbum
@@ -51,6 +54,7 @@ export class AlbumsComponent implements OnInit {
       console.log(this.filteredAlbumList)
     }
   }
+  // au chargement de la page
   ngOnInit(): void {
     // au chargement de la page
     this.myAlbum = this.Album.albums;

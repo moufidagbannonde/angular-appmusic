@@ -28,16 +28,17 @@ export class AsideComponent {
 
   convert !: number;
 
-  calcul(): void {
-    //   this.sum = this.album.tracks?.find.map((arr: number,curr: number) =>arr+curr, 0);
-    //   console.log(this.sum)
-  }
-  progressBar: any;
   constructor() { }
   ngOnInit() {
     console.log(this.album);
     this.calcul();
   }
+  calcul(): void {
+    //   this.sum = this.album.tracks?.find.map((arr: number,curr: number) =>arr+curr, 0);
+    //   console.log(this.sum)
+  }
+
+  progressBar: any;
 
   specific !: number
   play(): void {
@@ -48,25 +49,27 @@ export class AsideComponent {
     // 
     if (this.album.tracks) {
       for (let i: number = 0; i < this.album.tracks?.length; i++) {
-          this.specific = this.album.tracks[i].duration;
-          // récupération de tous les durées d'album
-          console.log(this.specific); 
-          this.convert = this.specific 
-          // this.sum += this.specific;
-          console.log(this.convert)
+        this.specific = this.album.tracks[i].duration;
+        // récupération de tous les durées d'album
+        console.log(this.specific);
+        this.convert = this.specific
+        this.sum += this.specific;
       }
     }
+
     console.log("somme des durations" + this.sum)
     this.progressBar = setInterval(() => {
-      if (this.ratio < 100) {
-        this.ratio += 0.5;
-      } else if(this.ratio == this.album.trackCount){
+      if (this.ratio < this.album.trackCount) {
+        this.ratio ++;
+      } else if (this.ratio == this.album.trackCount) {
         clearInterval(this.progressBar);
         this.playing = false;
       }
-    }, 1000)
+    },this.album.tracks!.length * 1000)
   }
 
-
+increment(){
+  
+}
 }
 
