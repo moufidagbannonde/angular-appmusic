@@ -1,11 +1,17 @@
-<div class="divbuttons">
-    <nav>
-        <button class="btn">Prev</button>
-        <button class="btn">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
-        <button class="btn">4</button>
-        <a routerLink="/">
-            <button class="btn">Next</button></a>
-    </nav>
-</div>
+<nav>
+    <ul class="pagination justify-content-center">
+        <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="previous()" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item" *ngFor="let page of pages; let i = index" [class.active]="i + 1 === currentPage">
+            <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+        </li>
+        <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="next()" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

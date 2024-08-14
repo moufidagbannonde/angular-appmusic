@@ -21,7 +21,7 @@ export class AlbumsComponent implements OnInit {
   // display():void {
   //   this.affiche = !this.affiche ;
   // }
-
+  perPage = 2;
   affiche: boolean = false;
   myAlbum: AlbumClass[];
 
@@ -44,7 +44,6 @@ export class AlbumsComponent implements OnInit {
     this.myAlbum = this.Album.getAlbums();
     this.filteredAlbumList = this.myAlbum;
   }
-
   // fonction de recherche d'un album
   filterResults(text: string) {
     if (!text) {
@@ -60,9 +59,14 @@ export class AlbumsComponent implements OnInit {
     this.myAlbum = this.Album.albums;
     // récupérer la 
     this.allAlbums = this.Album.getAlbums();
-    console.log(this.word)
-  }
+    this.updateAlbums(1);
 
+    this.Album.sendCurrentNumberPage.subscribe((pageNumber: number) => this.updateAlbums(pageNumber))
+  }
+  updateAlbums(pageNumber: number): void {
+    this.myAlbum = this.Album.paginate(pageNumber, this.perPage);
+    this.search();
+  }
   albumView(id: string) {
     // récupérer l'album à travers son id
     this.selectedAlbum = this.Album.getAlbum(id)

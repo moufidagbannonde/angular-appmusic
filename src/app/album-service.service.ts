@@ -429,8 +429,16 @@ export class AlbumServiceService {
     }
   ]
 
-paginate(start: number, end:number){
-    return this.albums.slice(start, end)
+  sendCurrentNumberPage = new Subject<number>();
+
+paginate(page: number, PerPage:number): AlbumClass[]{
+  const start = (page - 1) * PerPage;
+  const end = start + PerPage
+    return this.albums.slice(start, end);
+}
+
+currentPage(page: number){
+  this.sendCurrentNumberPage.next(page);
 }
   // paginate(start: number, end: number): Observable<AlbumClass[]> {
   //   return this.http.get<AlbumClass[]>(this._albumsUrl).pipe(

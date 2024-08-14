@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, EventEmitter } from '@angular/core';
 import { OnInit } from '../../../node_modules/@angular/core/index';
 import { NgModel } from '../../../node_modules/@angular/forms/index';
 import { AlbumServiceService } from '../album-service.service';
@@ -8,22 +8,48 @@ import { AlbumServiceService } from '../album-service.service';
   templateUrl: './paginate.component.html',
   styleUrl: './paginate.component.css'
 })
-export class PaginateComponent implements OnInit{
-  pageSize: number = 5;
-  totalItems: number = 13;
-  itemPerPage: number = 2;
-  items: any[] = [];
+export class PaginateComponent implements OnInit {
 
-  constructor(private service: AlbumServiceService) {
-    for(let i: number = 0; i < this.totalItems; i ++){
-      this.items.push(i);
-    }
-   }
+  @Input() perPage = 2; // Nombre d'albums par page
 
+  totalPages!: number;
+
+  currentPage = 1;
+
+  pages: number[] = [];
+
+  constructor(private albumService: AlbumServiceService) {}
 
   ngOnInit(): void {
-    this.items = this.items.slice(this.itemPerPage * (this.pageSize - 1), this.itemPerPage * this.pageSize)
+    // Calculer le nombre total de pages basé sur le nombre total d'albums et les albums par page
+    const totalAlbums = this.albumService.getAlbums().length;
+    this.totalPages = Math.ceil(totalAlbums / this.perPage);
+    this.pages = Array(this.totalPages).fill(0).map((_, i) => i + 1);
+
+    // S'abonner aux changements de page pour mettre à jour la page courante
+    this.albumService.sendCurrentNumberPage.subscribe(page => {
+      this.currentPage = page;
+    });
   }
 
-  
+  next(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.albumService.currentPage(this.currentPage);
+    }
+  }
+
+  previous(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.albumService.currentPage(this.currentPage);
+    }
+  }
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.albumService.currentPage(page);
+    }
+  }
 }
