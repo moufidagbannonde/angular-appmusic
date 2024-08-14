@@ -4,7 +4,7 @@ import { AlbumServiceService } from '../album-service.service';
 import { AlbumClass, AlbumInterface } from '../models/album-interface';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router'
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @Component({
@@ -23,7 +23,7 @@ export class AlbumsComponent implements OnInit {
   // }
 
   affiche: boolean = false;
-  myAlbum !: AlbumClass[];
+  myAlbum: AlbumClass[];
 
   selectedAlbum !: any;
 
@@ -35,19 +35,27 @@ export class AlbumsComponent implements OnInit {
 
   count!: string;
 
-  searching !: AlbumClass[]
+  searching !: AlbumClass[];
+
   // time !:string;
   constructor(private Album: AlbumServiceService, private router: Router) {
     this.myAlbum = this.Album.getAlbums();
     this.filteredAlbumList = this.myAlbum;
   }
-
+  
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredAlbumList = this.myAlbum
+    } else {
+      this.filteredAlbumList = this.myAlbum.filter(albumLocation => albumLocation?.title.toLowerCase().includes(text.toLowerCase()));
+      console.log(this.filteredAlbumList)
+    }
+  }
   ngOnInit(): void {
     // au chargement de la page
     this.myAlbum = this.Album.albums;
     // récupérer la 
     this.allAlbums = this.Album.getAlbums();
-    //  this.Album.paginate(0, this.Album.paginateNumberPage())
     console.log(this.word)
   }
 
@@ -67,18 +75,24 @@ export class AlbumsComponent implements OnInit {
 
   word: string = "";
 
-  search() {
-    if (this.word.trim() !== "") {
-      return this.searching = this.allAlbums.filter(
+  searchValue !: string;
+
+
+  search(): void {
+    if (this.word.trim()) {
+      this.searching = this.myAlbum.filter(
         (el: AlbumClass) => {
-          el.title.toLowerCase().includes(this.word.toLowerCase());
-          console.log(this.searching);
-          console.log(this.word)
+          el.title.toLocaleLowerCase().includes(this.word.toLocaleLowerCase());
         }
       )
+      console.log(this.searching);
+      console.log(this.word)
     } else {
-      return this.allAlbums;
+      this.searching = this.myAlbum;
     }
+  }
+  onSearch(): void {
+    this.search()
   }
 
 }

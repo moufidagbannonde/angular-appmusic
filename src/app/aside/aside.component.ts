@@ -59,8 +59,8 @@ export class AsideComponent {
     console.log("somme des durations" + this.sum)
     this.progressBar = setInterval(() => {
       if (this.ratio < 100) {
-        this.ratio += 1;
-      } else {
+        this.ratio += 0.5;
+      } else if(this.ratio == this.album.trackCount){
         clearInterval(this.progressBar);
         this.playing = false;
       }

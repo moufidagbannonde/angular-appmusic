@@ -7,11 +7,12 @@
         <h1>Page principale de Music Album</h1>
         <div>
             <div class="conteneur">
-                <form class="form-inline my-2 my-lg-0">
-                    <input required class="form-control mr-sm-2" type="search"
-                        placeholder="Entrez le titre d'une chanson " aria-label="Entrez le titre d'une chanson"
-                        [(ngModel)]="searching">
-                    <button class="btn btn-success" type="submit" (click)="search()">
+                <form class="form-inline my-2 my-lg-0" >
+                    <input required class="form-control mr-sm-2"
+                    name="search" 
+                        placeholder="Entrez le titre d'une chanson "  #filter   
+                       >
+                    <button class="btn btn-success" type="submit" (click)="filterResults(filter.value)">
                         Search
                     </button>
                 </form>
@@ -28,7 +29,8 @@
                     <button class="btn">Next</button></a>
             </nav>
         </div>
-        <div *ngFor="let album of myAlbum; let index" class="container">
+        <div *ngFor="let album of       filteredAlbumList 
+        ; let index" class="container">
             <div class="h2">
                 <h2>{{ album.genre }}</h2>
             </div>
