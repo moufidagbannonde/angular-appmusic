@@ -21,7 +21,7 @@ export class AlbumsComponent implements OnInit {
   // display():void {
   //   this.affiche = !this.affiche ;
   // }
-  perPage = 2;
+  perPage = 5;
   affiche: boolean = false;
   myAlbum: AlbumClass[];
 
@@ -46,7 +46,7 @@ export class AlbumsComponent implements OnInit {
   }
   // fonction de recherche d'un album
   filterResults(text: string) {
-    if (!text) {
+    if (!text.trim()) {
       this.filteredAlbumList = this.myAlbum
     } else {
       this.filteredAlbumList = this.myAlbum.filter(albumLocation => albumLocation?.title.toLowerCase().includes(text.toLowerCase()));
